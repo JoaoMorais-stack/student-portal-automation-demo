@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional, local-only student portal automation demo.">
+  <title>Northstar Learning Lab</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Northstar Learning Lab home">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span><strong>Northstar</strong><small>Learning Lab</small></span>
+    </a>
+    <div class="local-badge"><span aria-hidden="true"></span> Local mock environment</div>
+  </header>
+
+  <main>
+    <section class="overview" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Student workspace</p>
+        <h1 id="page-title">Welcome back, <span id="student-name">Student</span></h1>
+        <p id="student-meta" class="subdued">Loading fictional profile...</p>
+      </div>
+      <div class="actions">
+        <button id="reset-button" class="button secondary" type="button">Reset demo</button>
+        <button id="run-button" class="button primary" type="button">Run authorized demo</button>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Progress summary">
+      <div class="metric"><span>Overall progress</span><strong id="overall-progress">--</strong></div>
+      <div class="metric"><span>Active courses</span><strong id="course-count">--</strong></div>
+      <div class="metric"><span>Completed lessons</span><strong id="completed-count">--</strong></div>
+      <div class="metric"><span>Pending lessons</span><strong id="pending-count">--</strong></div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Current term</p>
+          <h2>Course progress</h2>
+        </div>
+        <p id="status-line" role="status" aria-live="polite">Ready for a local demonstration.</p>
+      </div>
+      <div id="course-list" class="course-list" aria-live="polite"></div>
+    </section>
+
+    <section class="activity" aria-labelledby="activity-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Automation trace</p>
+          <h2 id="activity-title">Recent activity</h2>
+        </div>
+      </div>
+      <ol id="activity-list" class="activity-list">
+        <li><span class="activity-dot idle"></span><div><strong>Demo initialized</strong><small>No external service was contacted.</small></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    Fictional data. Local execution. Authorized mock automation only.
+  </footer>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
+
