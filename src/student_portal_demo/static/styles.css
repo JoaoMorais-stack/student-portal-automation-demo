@@ -369,8 +369,9 @@ h2 {
   height: 34px;
   margin-top: -17px;
   border-radius: 50%;
-  border: 5px solid var(--tone);
-  border-right-color: color-mix(in srgb, var(--tone) 25%, transparent);
+  border: 4px solid var(--tone);
+  background: radial-gradient(circle, var(--tone) 0 4px, transparent 5px);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--tone) 16%, transparent);
 }
 
 .metric span {
