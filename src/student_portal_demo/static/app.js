@@ -30,7 +30,7 @@ function courseMarkup(course) {
   `).join("");
 
   return `
-    <article class="course-card" style="--course-accent: ${escapeHtml(course.accent)}; --progress: ${course.progress}%">
+    <article class="course-card" data-accent="${escapeHtml(course.accent)}" data-progress="${course.progress}">
       <div class="course-header">
         <p class="course-code">${escapeHtml(course.code)}</p>
         <h3 class="course-title">${escapeHtml(course.title)}</h3>
@@ -51,6 +51,12 @@ function render(state) {
   elements.completed.textContent = state.summary.completed;
   elements.pending.textContent = state.summary.pending;
   elements.courseList.innerHTML = state.courses.map(courseMarkup).join("");
+  // O CSP (style-src 'self') bloqueia atributos style no HTML gerado; a cor e o
+  // progresso de cada curso são aplicados pela CSSOM, que a política permite.
+  elements.courseList.querySelectorAll(".course-card").forEach((card) => {
+    card.style.setProperty("--course-accent", card.dataset.accent);
+    card.style.setProperty("--progress", `${Number(card.dataset.progress) || 0}%`);
+  });
 }
 
 function renderEvents(events) {
